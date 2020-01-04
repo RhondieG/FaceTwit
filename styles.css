@@ -1,0 +1,33 @@
+body{
+    margin:40px;
+    background-image: url("background.jpg");
+
+}
+
+h1
+{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: white;
+    text-shadow: 2px 2px #363215;
+}
+
+.formatpostbutton {
+    padding: 20px 0px 30px 0px;
+
+}
+.scrollable {
+    height: 100px;
+    overflow-y: scroll;
+  }
+ #post-container{
+     height: 600px;
+     overflow-y: scroll;
+
+ }
+ .form-group {
+     color: white;
+ }
+
+ .home {
+     color: white;
+ }

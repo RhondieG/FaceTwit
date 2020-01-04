@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register Social Feed</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+            
+                    <form>
+                            <div class="form-group">
+                              <label for="inputEmail"> Input Email Address</label>
+                              <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputPassword">Create Password</label>
+                              <input type="password" class="form-control" id="inputPassword">
+                            </div>
+                            <!-- If registration is successful - submit button onclick should go back to login.html -->
+                            <button class="btn btn-primary btn-block" type="submit" onclick="submitRegister(event)">Register</button>
+                            <a class="home" href="login.html">Back To Home <span class="sr-only">(current)</span></a>
+                        </form>
+    </body>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="jquery.js"></script>
+  <script src="app.js"></script>
+  <script type="text/javascript">
+        function submitRegister(event) {
+            event.preventDefault();
+            let email_input = $('#inputEmail').val();
+            // let email_input = document.getElementById('inputEmail').val
+            let password_input = $('#inputPassword').val();
+             // let password_input = document.getElementById('inputPassword').val
+            let data = {
+              email : email_input,
+              password: password_input
+            };
+            let successCallback = function(response) {
+              window.localStorage.setItem("name", response.name);
+              window.location = 'index.html';
+            }
+            let failureCallback = function(response) {
+              $('#errorMessage').html(response.responseText);
+            }
+            apiRegister(data, successCallback, failureCallback);
+        }
+      
+      </script>
+    
+    
+        </html>
